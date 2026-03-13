@@ -89,3 +89,7 @@
 ![alt text](image-12.png)
 
 Pada tugas ini, saya mengimplementasikan sistem event-driven berupa Task Queue menggunakan RabbitMQ yang terdiri dari Producer (task_generator.py) dan beberapa Consumer (worker.py). Desain ini mengandalkan tiga mekanisme utama. Pertama, pemisahan beban (decoupling), sehingga Producer dapat mengirim tugas ke antrean tanpa harus menunggu proses selesai (tidak blocking). Kedua, durabilitas tinggi (Message Durability), menggunakan durable=True dan PERSISTENT_DELIVERY_MODE agar pesan tugas tersimpan aman di disk dan tidak hilang saat server mati tiba-tiba. Ketiga, pembagian kerja yang adil (Fair Dispatch) menggunakan channel.basic_qos(prefetch_count=1). Melalui pengaturan ini, RabbitMQ hanya akan memberikan tugas baru kepada worker yang sedang menganggur dan telah menyelesaikan tugas sebelumnya. Hal ini sangat efektif untuk melakukan load balancing dan mencegah penumpukan antrean beban kerja pada satu pekerja saja.
+
+
+# Deklarasi Penggunaan Generative AI
+Dalam pengerjaan tugas ini, saya menggunakan bantuan alat Generative AI yaitu Google Gemini. Alat ini saya gunakan untuk membantu memahami konsep arsitektur event-driven dan replikasi database, melakukan troubleshooting ketika menghadapi kendala, menyusun kerangka dasar kode Python untuk simulasi RabbitMQ dan merapikan kalimat penjelasan di dalam laporan ini. Meskipun menggunakan bantuan AI untuk hal-hal tersebut, seluruh proses eksekusi perintah, instalasi, dan pengujian sistem tetap saya jalankan secara mandiri di environment lokal saya.
